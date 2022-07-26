@@ -1,2 +1,3 @@
-# thunderchat
-Chat App
+Gerekli kurulumlar 
+https://nodejs.org/en/download/
+
