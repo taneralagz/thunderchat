@@ -4,8 +4,8 @@
   "description": "Gerekli kurulumlar \r https://nodejs.org/en/download/",
   "main": "public/index.html",
   "scripts": {
-    "server": "nodemon server.js"
-  },
+    "start": "node server",
+    "dev": "nodemon server"},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/taneralagz/thunderchat.git"
