@@ -11,6 +11,10 @@ npm install
 çalıştırma-------------
 nodemon server.js
 
+tarayıcı
+
+http://localhost:3000/
+
 // nodemon start çalışmazsa
 İlk önce PowerShell'i yönetici olarak arayın ve çalıştırın
 

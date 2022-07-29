@@ -13,5 +13,8 @@ app.use(express.static('public')); // public klasörünü aç
 const io = socket(server);
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log(socket.id);
+    socket.on('chat', (data) => {
+        io.sockets.emit('chat', data);
+    });
 });
