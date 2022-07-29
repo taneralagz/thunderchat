@@ -1,14 +1,17 @@
 const express = require('express')
+const socket = require('socket.io')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello World!')
+// })
 
-app.listen(port, () => {
+const server = app.listen(port)  //dinle
+app.use(express.static('public')); // public klasörünü aç
 
-    console.log(`Example app listening on port ${port}`)
-})
+const io = socket(server);
 
-//app.use(express.static('public'));
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});

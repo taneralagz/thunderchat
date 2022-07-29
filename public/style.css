@@ -2,7 +2,7 @@
 input:focus, button:focus{ outline: 0 }
 
 body{
-    font-size: 'Poppins'
+    font-family: 'Poppins'
 }
 h2{
 font-size: 23px;
@@ -46,7 +46,7 @@ overflow-y: auto;
     }
         button{
         font-family: 'Poppins';
-        background-color: #0085ad;
+        background-color: #30db7d;
         color: #fff;
         border: 0;
         border-radius: 0 0 5px 5px;
