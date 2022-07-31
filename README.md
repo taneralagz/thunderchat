@@ -15,10 +15,10 @@ tarayıcı
 
 http://localhost:3000/
 
-// nodemon start çalışmazsa
+// <span>nodemon start çalışmazsa</span>
 İlk önce PowerShell'i yönetici olarak arayın ve çalıştırın
 
-Get-ExecutionPolicy
-Set-ExecutionPolicy Unrestricted
+<li>Get-ExecutionPolicy</li><br>
+<li>Set-ExecutionPolicy Unrestricted</li><br>
 y
 //sırasıyla
