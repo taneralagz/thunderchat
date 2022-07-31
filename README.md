@@ -1,5 +1,4 @@
 <span>Gerekli kurulumlar<span>
-
 <ol type="1">
   <li>  https://nodejs.org/en/download/</li>
   <li> https://git-scm.com/downloads  </li>
@@ -16,3 +15,5 @@
     </ul>
    <li>Tarayıcı : http://localhost:3000/</li>
 </ol>
+
+<h6>Geliştirilme aşamasındadır ....<h6>
