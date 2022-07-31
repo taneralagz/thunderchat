@@ -5,10 +5,9 @@
   <li> https://git-scm.com/downloads  </li>
   <li> visual code terminal</li>
      <ul type="square">
-       <li>modül kurulumu</li>
        <li>npm install</li>
-       <li>nodemon server.js</li>
-        <ul type="square">
+       <li>nodemon server.js (error dönuyorsa aşağıdaki adıma geçin)</li>
+        <ul type="1">
             <li>İlk önce PowerShell'i yönetici olarak arayın ve çalıştırın</li>
             <li>Get-ExecutionPolicy</li>
             <li>Set-ExecutionPolicy Unrestricted</li>
