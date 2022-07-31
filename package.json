@@ -5,7 +5,8 @@
   "main": "public/index.html",
   "scripts": {
     "start": "node server",
-    "dev": "nodemon server"},
+    "dev": "nodemon server"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/taneralagz/thunderchat.git"
