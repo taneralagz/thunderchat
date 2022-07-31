@@ -1,6 +1,11 @@
-Gerekli kurulumlar
-https://nodejs.org/en/download/
-https://git-scm.com/downloads
+<span>Gerekli kurulumlar<span>
+
+<ol type="i">
+  <li>  https://nodejs.org/en/download/</li>
+  <li> https://git-scm.com/downloads  
+</ol>
+<li>
+
 visual code
 
 terminal--
