@@ -1,16 +1,17 @@
 <span>Gerekli kurulumlar<span>
 
-<ol type="i">
+<ol type="1">
   <li>  https://nodejs.org/en/download/</li>
-  <li> https://git-scm.com/downloads  
+  <li> https://git-scm.com/downloads  </li>
+  <li> visual code terminal</li>
+  <ul type="square">
+       <li>modül kurulumu</li>
+       <li>npm install</li>
+     </ul>
 </ol>
-<li>
+--
 
-visual code
-
-terminal--
-
-modül kurulumu---------
+---------
 npm install
 
 çalıştırma-------------
