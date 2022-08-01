@@ -10,7 +10,7 @@ function gonder() {
   console.log("sdxscscsi");
   console.log("message.value");
   socket.emit("chat", {
-    message: message,
+    message: message.value,
     sender: sender,
   });
 }

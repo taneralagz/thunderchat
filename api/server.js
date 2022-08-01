@@ -3,14 +3,16 @@ const socket = require('socket.io')
 const app = express()
 const port = 3000
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
+app.get('/about', (req, res) => {
+    res.send('Hakkımda sayfası..')
+})
 
-const server = app.listen(port)  //dinle
-app.use(express.static('public')); // public klasörünü aç
+const server = app.listen(port)  //3000'i dinle
+app.use(express.static('client')); // client index çalıştır
 
 const io = socket(server);
+
+console.log("Server is running on port: " + port);
 
 io.on('connection', (socket) => {
     console.log(socket.id);
