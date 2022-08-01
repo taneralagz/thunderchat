@@ -1,18 +1,18 @@
 const socket = io.connect("http://localhost:3000");
 
 const sender = document.getElementById("sender");
-const message = document.querySelector("message");
-const output = document.querySelector("output");
-const feedback = document.querySelector("feedback");
+const message = document.getElementById("message");
+const output = document.getElementById("output");
+const feedback = document.getElementById("feedback");
 //const submitBtn = document.querySelector('submitBtn');
 
 function gonder() {
-  alert("gönderildi mi gerçekten?");
+  alert(sender.value, "  gönderildi mi gerçekten?");
   console.log("sdxscscsi");
   console.log("message.value");
   socket.emit("chat", {
     message: message.value,
-    sender: sender,
+    sender: sender.value,
   });
 }
 
