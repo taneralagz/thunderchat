@@ -17,6 +17,10 @@ console.log("Server is running on port: " + port);
 io.on('connection', (socket) => {
     console.log(socket.id);
     socket.on('chat', (data) => {
+        console.log(data);
         io.sockets.emit('chat', data);
+    });
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('typing', data);
     });
 });

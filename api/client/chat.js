@@ -4,12 +4,9 @@ const sender = document.getElementById("sender");
 const message = document.getElementById("message");
 const output = document.getElementById("output");
 const feedback = document.getElementById("feedback");
-//const submitBtn = document.querySelector('submitBtn');
+
 
 function gonder() {
-  alert(sender.value, "  gönderildi mi gerçekten?");
-  console.log("sdxscscsi");
-  console.log("message.value");
   socket.emit("chat", {
     message: message.value,
     sender: sender.value,
@@ -17,10 +14,15 @@ function gonder() {
 }
 
 socket.on("chat", (data) => {
-  console.log("data", data);
-  if (!data && data != null && data != undefined) {
-    output.innerHTML += `<p><strong>${data.sender}:</strong> ${data.message}</p>`;
-  } else {
-    console.log("hata !");
-  }
+  feedback.innerHTML = "";
+  output.innerHTML += `<p><strong>${data.sender}:</strong> ${data.message}</p>`;
+  message.value = "";
+});
+
+message.addEventListener("keypress", (e) => {
+  socket.emit("typing", sender.value);
+});
+
+socket.on("typing", (data) => {
+  feedback.innerHTML = `<p><em>${data} yazıyor...</em></p>`;
 });
