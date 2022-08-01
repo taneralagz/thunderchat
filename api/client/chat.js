@@ -7,6 +7,7 @@ const feedback = document.querySelector("feedback");
 //const submitBtn = document.querySelector('submitBtn');
 
 function gonder() {
+  alert("gönderildi mi gerçekten?");
   console.log("sdxscscsi");
   console.log("message.value");
   socket.emit("chat", {
