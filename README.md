@@ -1,4 +1,5 @@
 <span>Gerekli kurulumlar<span>
+
 <ol type="1">
   <li>  https://nodejs.org/en/download/</li>
   <li> https://git-scm.com/downloads  </li>
@@ -17,3 +18,9 @@
 </ol>
 
 <h6>Geliştirilme aşamasındadır ....<h6>
+kalınan yer:
+db eklendi,
+mesajlar db ye kayıt ediliyor
+mesajların hepsi db den çekiliyor
+
+sıralama- önyüklemede mesajların gelmesi - silme işlemleri yapılacak
