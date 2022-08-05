@@ -15,7 +15,7 @@ function gonder() {
 
 socket.on("chat", (data) => {
   feedback.innerHTML = "";
-  output.innerHTML += `<p><strong>${data.sender}:</strong> ${data.message}</p>`;
+  output.innerHTML += `<p><strong>${data.user}:</strong> ${data.message}</p>`;
   message.value = "";
 });
 

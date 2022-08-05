@@ -1,9 +1,17 @@
 const express = require('express')
 const socket = require('socket.io')
+const mongoose = require('mongoose')
+const db_url = 'mongodb+srv://12345:12345@thunderchatdb.l3u96wb.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB bağlantısı başarılı'))
+    .catch((err) => console.log(err))
 const app = express()
-const port = 3000
+const port = 3000;
+
+const Chat = require('./models/chatdb');
 
 app.get('/about', (req, res) => {
+
     res.send('Hakkımda sayfası..')
 })
 
@@ -14,11 +22,28 @@ const io = socket(server);
 
 console.log("Server is running on port: " + port);
 
+
 io.on('connection', (socket) => {
-    console.log(socket.id);
+    //console.log(socket.id);
     socket.on('chat', (data) => {
-        console.log(data);
-        io.sockets.emit('chat', data);
+
+        const chat_insert = new Chat({
+            user: data.sender,
+            message: data.message,
+            timestamp: Date.now()
+        })
+        chat_insert.save()
+            .then(() => console.log('Mesaj başarıyla eklendi'))
+            .catch((err) => console.log(err))
+        Chat.find({})
+            .then((chats) => {
+                chats = chats.reverse()
+                chats.forEach((data) => {
+                    io.sockets.emit('chat', data)
+                    // console.log(chats);
+                })
+            }).catch((err) => console.log(err))
+
     });
     socket.on('typing', (data) => {
         socket.broadcast.emit('typing', data);
