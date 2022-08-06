@@ -2,7 +2,8 @@
 input:focus, button:focus{ outline: 0 }
 
 body{
-    font-family: 'Poppins'
+    font-family: 'Poppins';
+    background-color : #6b0c0c;
 }
 h2{
 text-align: center;
