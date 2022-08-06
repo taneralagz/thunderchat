@@ -55,4 +55,8 @@ overflow-y: auto;
         width: 100%;
         padding: 12px 0px;
         font-size: 17px;
-    }		
+    }
+#chat_alan{
+    float: right;
+    height: 500px;
+}	
