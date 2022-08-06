@@ -7,10 +7,14 @@ const feedback = document.getElementById("feedback");
 
 
 function gonder() {
-  socket.emit("chat", {
-    message: message.value,
-    sender: sender.value,
-  });
+  if (message.value === "") {
+    alert(" Lütfen boş alanları doldurunuz.");
+  } else {
+    socket.emit("chat", {
+      message: message.value,
+      sender: sender.value,
+    });
+  }
 }
 
 socket.on("chat", (data) => {
