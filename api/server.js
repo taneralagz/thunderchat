@@ -3,7 +3,7 @@ const socket = require('socket.io')
 const mongoose = require('mongoose')
 const db_url = 'mongodb+srv://12345:12345@thunderchatdb.l3u96wb.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB bağlantısı başarılı'))
+    .then(() => console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "Veri tabanı bağlandı.", "\x1b[0m"))
     .catch((err) => console.log(err))
 const app = express()
 const port = 3000;
@@ -20,7 +20,7 @@ app.use(express.static('client')); // client index çalıştır
 
 const io = socket(server);
 
-console.log("Server is running on port: " + port);
+console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "Server is running on port: "+port, "\x1b[0m");
 
 
 io.on('connection', (socket) => {
