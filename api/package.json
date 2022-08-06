@@ -2,7 +2,6 @@
   "name": "thunderchat",
   "version": "1.0.0",
   "description": "Gerekli kurulumlar \r https://nodejs.org/en/download/",
-  "main": "public/index.html",
   "scripts": {
     "start": "node server",
     "dev": "nodemon server"
