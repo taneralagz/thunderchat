@@ -20,6 +20,7 @@ function gonder() {
 socket.on("chat", (data) => {
   feedback.innerHTML = "";
   output.innerHTML += `<p><strong>${data.user}:</strong> ${data.message}</p>`;
+  document.getElementById("test").innerHTML += `<hr>${data.user}</hr>`;
   message.value = "";
 });
 
@@ -29,4 +30,5 @@ message.addEventListener("keypress", (e) => {
 
 socket.on("typing", (data) => {
   feedback.innerHTML = `<p><em>${data} yazıyor...</em></p>`;
+
 });

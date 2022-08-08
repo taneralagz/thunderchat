@@ -27,7 +27,6 @@ console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "Server is running on port: "+po
 
 
 io.on('connection', (socket) => {
-    //console.log(socket.id);
     socket.on('chat', (data) => {
 
         const chat_insert = new Chat({
@@ -43,6 +42,7 @@ io.on('connection', (socket) => {
                 chats = chats.reverse()
                 chats.forEach((data) => {
                     io.sockets.emit('chat', data)
+                    console.log("data",data)
                     // console.log(chats);
                 })
             }).catch((err) => console.log(err))
