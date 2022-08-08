@@ -25,14 +25,12 @@ overflow-y: auto;
 }
 #output p{
     font-size: 15px;
-    padding: 12px;
     }
     #output p:nth-child(even) {
     background-color: #f2f2f2;
     }
     #feedback p{
     font-size: 13px;
-    padding: 12px;
     }
     #output strong{
     color: #0085ad;
@@ -59,7 +57,9 @@ overflow-y: auto;
     }
 #chat_alan{
     float: right;
-    height: 500px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-right: 30px;
 }
 
 #logo {
