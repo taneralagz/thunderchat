@@ -27,6 +27,7 @@ console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "Server is running on port: "+po
 
 
 io.on('connection', (socket) => {
+   
     socket.on('chat', (data) => {
 
         const chat_insert = new Chat({
@@ -42,13 +43,20 @@ io.on('connection', (socket) => {
                 chats = chats.reverse()
                 chats.forEach((data) => {
                     io.sockets.emit('chat', data)
-                    console.log("data",data)
-                    // console.log(chats);
+                    console.log("serveer data",data)
+                    console.log("serveer chats",data.timestamp);
+                    console.log("serveer user",data.user);
                 })
             }).catch((err) => console.log(err))
 
     });
+
     socket.on('typing', (data) => {
         socket.broadcast.emit('typing', data);
     });
+
+    socket.on('disconnect', () => {
+        console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "User disconnected.", "\x1b[0m");
+    }
+    );
 });
