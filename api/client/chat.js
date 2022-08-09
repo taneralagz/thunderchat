@@ -17,7 +17,7 @@ function gonder() {
   }
 }
 
-//Hatalı Satırları Yorum satırı yapın.
+//İndex1 silindi, test user ejs'e eklenince kullanılacak.
 /*socket.on("connect", () => {
   document.getElementById("test").innerHTML += `<hr>${socket.id} adlı kullanıcı hoş geldin</hr>`;
 })*/
