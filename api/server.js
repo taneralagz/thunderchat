@@ -1,25 +1,30 @@
+//Require Space
 const express = require('express')
 const socket = require('socket.io')
-
+const indexController=require('./client/controllers/indexController')
+const Chat = require('./models/chatdb');
 const mongoose = require('mongoose')
+
 const db_url = 'mongodb+srv://12345:12345@thunderchatdb.l3u96wb.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "Veri tabanı bağlandı.", "\x1b[0m"))
     .catch((err) => console.log(err))
 
-
 const app = express()
+
+//Set up Template Engine For EJS
+app.set('view engine','ejs');
+app.set('views','./client/views');
+
+//Static Files 
+app.use(express.static('client'));
+
 const port = 3000;
 
-const Chat = require('./models/chatdb');
-
-app.get('/about', (req, res) => {
-
-    res.send('Hakkımda sayfası..')
-})
+//Send App
+indexController(app);
 
 const server = app.listen(port)  //3000'i dinle
-app.use(express.static('client')); // client index çalıştır
 
 const io = socket(server);
 
