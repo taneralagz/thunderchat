@@ -16,9 +16,11 @@ function gonder() {
     });
   }
 }
-socket.on("connect", () => {
+
+//İndex1 silindi, test user ejs'e eklenince kullanılacak.
+/*socket.on("connect", () => {
   document.getElementById("test").innerHTML += `<hr>${socket.id} adlı kullanıcı hoş geldin</hr>`;
-})
+})*/
 
 socket.on("chat", (data) => {
   feedback.innerHTML = "";
