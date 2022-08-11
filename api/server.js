@@ -12,29 +12,41 @@ mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const app = express()
 
+//List of Online User 
+let allUsers=[];
+
 //Set up Template Engine For EJS
 app.set('view engine','ejs');
 app.set('views','./client/views');
 
 //Static Files 
 app.use(express.static('client'));
-
 const port = 3000;
 
 //Send App
 indexController(app);
-
 const server = app.listen(port)  //3000'i dinle
-
 const io = socket(server);
-
 console.log("\x1b[32m", "\x1b[32m", "\x1b[32m", "Server is running on port: "+port, "\x1b[0m");
 
-
 io.on('connection', (socket) => {
-   
-    socket.on('chat', (data) => {
+    //Online kullanıcı ekleme
+    allUsers.push({
+        id: socket.id,
+        username: 'default',
+        room_id: "0"
+    })
 
+    // Uygulama içerine kaç kullanıcının olduğu bilgisi gönderildi
+    io.emit("all_user", allUsers.length);
+    //Çıkış yapan kullanıcıyı takip etme
+    socket.on('disconnect', () => {
+        let removeIndex = allUsers.findIndex( item => item.id === socket.id );
+        allUsers.splice(removeIndex, 1);
+        io.emit('all_user', allUsers.length);
+    });
+
+    socket.on('chat', (data) => {
         const chat_insert = new Chat({
             user: data.sender,
             message: data.message,

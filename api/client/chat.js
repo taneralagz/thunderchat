@@ -5,7 +5,6 @@ const message = document.getElementById("message");
 const output = document.getElementById("output");
 const feedback = document.getElementById("feedback");
 
-
 function gonder() {
   if (message.value === "") {
     alert(" Lütfen boş alanları doldurunuz.");
@@ -16,7 +15,6 @@ function gonder() {
     });
   }
 }
-
 
 socket.on("connect", () => {
   document.getElementById("test-user").innerHTML += `${socket.id} adlı kullanıcı hoş geldin`;
@@ -36,4 +34,8 @@ message.addEventListener("keypress", (e) => {
 socket.on("typing", (data) => {
   feedback.innerHTML = `<p><em>${data} yazıyor...</em></p>`;
 
+});
+
+socket.on("all_user", (data) => {
+  document.getElementById("total_user").innerHTML = data;
 });
