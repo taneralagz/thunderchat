@@ -15,6 +15,12 @@ function gonder() {
     });
   }
 }
+window.onload = function () {
+  socket.emit("chat", {
+    message: message.value,
+    sender: sender.value,
+  });
+}
 
 socket.on("connect", () => {
   document.getElementById("test-user").innerHTML += `${socket.id} adlı kullanıcı hoş geldin`;
@@ -23,7 +29,7 @@ socket.on("connect", () => {
 socket.on("chat", (data) => {
   feedback.innerHTML = "";
   output.innerHTML += `<p><strong>${data.user}:</strong> ${data.message}</p>`;
-  
+
   message.value = "";
 });
 
