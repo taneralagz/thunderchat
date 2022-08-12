@@ -3,7 +3,7 @@ const socket = io.connect("http://localhost:3000");
 const sender = document.getElementById("sender");
 const message = document.getElementById("message");
 const output = document.getElementById("output");
-const feedback = document.getElementById("feedback");
+const yazi_yazan = document.getElementById("yazi_yazan");
 
 function gonder() {
   if (message.value === "") {
@@ -27,7 +27,7 @@ socket.on("connect", () => {
 })
 
 socket.on("chat", (data) => {
-  feedback.innerHTML = "";
+  yazi_yazan.innerHTML = "";
   output.innerHTML += `<p><strong>${data.user}:</strong> ${data.message}</p>`;
 
   message.value = "";
@@ -38,10 +38,15 @@ message.addEventListener("keypress", (e) => {
 });
 
 socket.on("typing", (data) => {
-  feedback.innerHTML = `<p><em>${data} yazıyor...</em></p>`;
+  yazi_yazan.innerHTML = `<p><mark>${data}yazıyor </mark> </p>`;
 
 });
 
 socket.on("all_user", (data) => {
-  document.getElementById("total_user").innerHTML = data;
+  
+  var html="";
+  for (let i = 0; i < data.allUsers.length; i++) {
+    html += `<p>${data.allUsers[i].id }</p>`;
+  }
+  document.getElementById("total_user").innerHTML += html;
 });

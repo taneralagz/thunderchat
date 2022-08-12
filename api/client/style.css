@@ -29,9 +29,6 @@ overflow-y: auto;
     #output p:nth-child(even) {
     background-color: #f2f2f2;
     }
-    #feedback p{
-    font-size: 13px;
-    }
     #output strong{
     color: #0085ad;
     }		

@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
     })
 
     // Uygulama içerine kaç kullanıcının olduğu bilgisi gönderildi
-    io.emit("all_user", allUsers.length);
+    io.emit("all_user",{allUsers: allUsers,socket_id: socket.id});
     //Çıkış yapan kullanıcıyı takip etme
     socket.on('disconnect', () => {
         let removeIndex = allUsers.findIndex(item => item.id === socket.id);
