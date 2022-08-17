@@ -7,10 +7,10 @@ const mongoose = require('mongoose')
 const ejsLayout=require('express-ejs-layouts')
 
 const app = express()
-app.use(ejsLayout);
+
 //List of Online User 
 let allUsers = [];
-
+app.use(ejsLayout);
 //Set up Template Engine For EJS
 app.set('view engine', 'ejs');
 app.set('views', './client/views');
