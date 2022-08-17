@@ -4,9 +4,10 @@ const socket = require('socket.io')
 const indexController = require('./client/controllers/indexController')
 const Chat = require('./models/chatdb');
 const mongoose = require('mongoose')
+const ejsLayout=require('express-ejs-layouts')
 
 const app = express()
-
+app.use(ejsLayout);
 //List of Online User 
 let allUsers = [];
 
